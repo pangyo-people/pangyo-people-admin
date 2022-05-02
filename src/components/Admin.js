@@ -38,7 +38,7 @@ function Admin() {
     <div>
       <header className="header">
         <div className="title">
-          <Link to="/admin">Pangyo-people</Link>
+          <Link to="/">Pangyo-people</Link>
         </div>
       </header>
 
