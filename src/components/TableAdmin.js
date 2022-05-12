@@ -28,21 +28,41 @@ function TableAdmin({ columns, data, deleteItem, updateItem }) {
               <tr {...row.getRowProps()}>
                 {row.cells.filter((e)=>e.column.Header!=="Id")
                 .map((cell, idx) => {
-                  if (row.cells.length === idx + 2) {
+                  console.log(row.cells.length)
+                  console.log(idx)
+                  if (idx === 1) {
+                    return(
+                    <td
+                      className="tableLink"
+                      onClick={() => {
+                        window.open("https://" + `${cell.value}`, "_blank");
+                      }}
+                      {...cell.getCellProps()}
+                    >
+                      {cell.render("Cell")}
+                    </td>
+                    )
+                  } else if (idx === 2) {
                     return (
                       <>
                         <td
-                          className="tableLink"
-                          onClick={() => {
-                            window.open("https://" + `${cell.value}`, "_blank");
-                          }}
                           {...cell.getCellProps()}
                         >
                           {cell.render("Cell")}
                         </td>
                         <div className="adminBtn">
-                          <img className="accessBtn" onClick={()=>updateItem(cell.row.values.id)} src={accessBtn} alt="" />
-                          <img className="cancelBtn" onClick={()=>deleteItem(cell.row.values.id)} src={cancelBtn} alt="" />
+                          <img
+                            className="accessBtn"
+                            onClick={() => updateItem(cell.row.values.id)}
+                            src={accessBtn}
+                            alt=""
+                          />
+                          <img
+                            className="cancelBtn"
+                            onClick={() => deleteItem(cell.row.values.id)}
+                            src={cancelBtn}
+                            alt=""
+                          />
                         </div>
                       </>
                     );
