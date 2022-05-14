@@ -2,7 +2,7 @@ name: build(dev)
 
 on:  
   pull_request:
-    branches: [develop-deploy, main]
+    branches: [deploy-dev, main]
 
 jobs:
   build:
