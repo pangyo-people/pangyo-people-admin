@@ -5,7 +5,7 @@ on:
     branches: [develop-deploy, main]
 
 jobs:
-  dev_build:
+  build:
     name: build dev code
     runs-on: ubuntu-latest
 
