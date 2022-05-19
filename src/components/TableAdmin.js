@@ -28,14 +28,12 @@ function TableAdmin({ columns, data, deleteItem, updateItem }) {
               <tr {...row.getRowProps()}>
                 {row.cells.filter((e)=>e.column.Header!=="Id")
                 .map((cell, idx) => {
-                  console.log(row.cells.length)
-                  console.log(idx)
                   if (idx === 1) {
                     return(
                     <td
                       className="tableLink"
                       onClick={() => {
-                        window.open("https://" + `${cell.value}`, "_blank");
+                        window.open(`${cell.value}`, "_blank");
                       }}
                       {...cell.getCellProps()}
                     >
