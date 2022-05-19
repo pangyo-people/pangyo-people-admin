@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect,useCallback} from "react";
+import React, { useMemo, useState, useEffect} from "react";
 import "../css/Header.css";
 import TableAdmin from "./TableAdmin";
 import {call} from "../service/ApiService"
@@ -37,7 +37,6 @@ function Organizations() {
       loading=false;
     }
   },[setItems]);
-
   const filterData =
     items.item.length > 0 &&
     items.item.filter((element) => element.orgPermission === false);
@@ -51,14 +50,14 @@ function Organizations() {
     }));
 
   const updateItem = (item) => {
-    call(`/v1/api/admin/orgs/${item}`, "PUT", null).then((response) => {
+    call(`/v1/api/admin/org/${item}`, "PUT", null).then((response) => {
       const newItems=filterData.filter((element)=> element.orgId !== response.orgId)
       setItems({ item: newItems });
     });
   };
 
   const deleteItem = (item) => {
-    call(`/v1/api/admin/orgs/${item}`, "DELETE", null).then((response) => {
+    call(`/v1/api/admin/org/${item}`, "DELETE", null).then((response) => {
       const newItems=filterData.filter((element)=> element.orgId !== response.orgId)
       setItems({ item: newItems });});
   };

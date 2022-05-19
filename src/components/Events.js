@@ -38,6 +38,8 @@ function Events() {
     };
   }, [setItems]);
 
+  console.log(items)
+
   const filterData =
     items.item.length > 0 &&
     items.item.filter((element) => element.eventPermission === false);
