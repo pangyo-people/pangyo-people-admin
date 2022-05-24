@@ -37,7 +37,6 @@ function Events() {
       loading = false;
     };
   }, [setItems]);
-
   const filterData =
     items.item.length > 0 &&
     items.item.filter((element) => element.eventPermission === false);

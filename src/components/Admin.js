@@ -1,16 +1,11 @@
 import React, { useState } from "react";
 import "../css/Header.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { Link, useNavigate } from "react-router-dom";
 import Organizations from "./Organizations";
 import Events from "./Events";
-import {call} from "../service/ApiService"
 
 
 function Admin() {
   let [page, setPage] = useState(0);
-  const navigate = useNavigate();
 
   const categorys = [
     { idx: "0", name: "Events" },
