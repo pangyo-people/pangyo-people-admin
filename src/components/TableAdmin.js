@@ -33,7 +33,7 @@ function TableAdmin({ columns, data, deleteItem, updateItem }) {
                     <td
                       className="tableLink"
                       onClick={() => {
-                        window.open(`${cell.value}`, "_blank");
+                        window.open(`${cell.value.substr(0,5)==="https"?cell.value:"https://"+cell.value}`, "_blank");
                       }}
                       {...cell.getCellProps()}
                     >
